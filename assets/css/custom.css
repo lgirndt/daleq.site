@@ -1,6 +1,6 @@
 body {
 	padding-top: 60px;
-	padding-bottom: 40px;
+	padding-bottom: 0;
 	font-family: 'Raleway', sans-serif;	
 }
 
@@ -12,6 +12,17 @@ body {
 	font-family: 'Coustard', serif;
 }
 
+.center {
+	text-align: center;
+}
+
 h1, h2, h3, h4, h5 {
 	font-family: 'Coustard', serif;
+}
+
+footer {
+	padding-top: 2em;
+	background-color: #333;
+	color: white;
+	padding-bottom: 2em;
 }

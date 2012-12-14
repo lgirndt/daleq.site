@@ -16,22 +16,28 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>            
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
   </div>
-
 
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
       <!--Sidebar content-->
-      Sidebar
+      <h1>Sidebar</h1>
+
+      <ul>
+      {% for post in site.posts %}
+          <li> {{ post.content }} 
+      {% endfor %}
+      </ul>
     </div>
-    <div class="span10">
+    <div class="span10"> 
+      <h1>{{ page.title }}</h1>     
       <!--Body content-->
       {{ content }}
-    </div>
+    </div>    
   </div>
 </div>
 

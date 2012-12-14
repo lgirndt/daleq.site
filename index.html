@@ -1,0 +1,106 @@
+---
+title:Daleq
+layout:
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+
+    {% include navigation.html %}
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <div class="center">
+          <h1>Daleq</h1>          
+        </div>
+        <div class="center">
+          <p>
+          Unit Test your SQL Queries.
+          </p>
+        </div>
+        <div class="center">
+            <a class="btn btn-primary btn-large"><i class="icon-book icon-white"></i>&nbsp;Read the Documentation &raquo;</a>
+            <a class="btn btn-large" href="https://github.com/brands4friends/daleq"><i class="icon-eye-open"></i>&nbsp;View on Github &raquo;</a>
+        </div>        
+      </div>
+
+      <div class="row">
+        <div class="span12">
+          <h2>What we think about test data</h2>
+          <p>Writing unit tests for SQL queries in a Java application stack is not easy.
+            One of the challenges is setting up the test data the queries will run on. To keep tests comprehensive and maintainable we have the following demands on such data:</p>
+        </div>
+      </div>
+
+      <div class="row">        
+        <div class="span4">
+          <h3>Define data per Test</h3>  
+          <p>It is not maintainable to have a single dump that is used for all tests. Each test ensures that a certain aspect of the query is implemented correctly.</p>
+          <p> We doubt that it is possible to set up a single dump which contains all possible test cases. We doubt even more that such a dump stays maintainable in the long run.</p>
+        </div>
+        <div class="span4">
+          <h3>Put it in your Test</h3>  
+          <p>Data should be defined close to the test. The closer the data is to the test, the more likely is, that it stays in sync with the test. The closest the data can be to test is actually in the test method.</p>
+          <p>Hence test data has to be set up in same language the test is written in.</p>
+        </div>
+        <div class="span4">
+          <h3>Describe what matters</h3>  
+          <p>Data setup should only describe the aspects that matter and therefore should be free of redundancy.</p>
+          <p>Since relational database tables tend to contain a lot of repetitive data, setting up this data is poses a challenge if such tests should stay mantainable.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span12">
+        <h2>What is Daleq</h2>
+        <p>
+          Daleq is a DSL to define content of a relational database in a concise and neat manner. It is actually very simple. 
+        </p>
+        <p>
+          It lets you describe a relational database table directly in your unit test by
+          just writing those parts of the data that are subject to the test. Anything
+          else is filled out by Daleq. 
+        </p>    
+
+<p>
+<div class="highlight"><pre class="pre-scrollable"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">findBySize_should_returnThoseProductsHavingThatSize</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">daleq</span><span class="o">.</span><span class="na">insertIntoDatabase</span><span class="o">(</span>
+            <span class="n">aTable</span><span class="o">(</span><span class="n">ProductTable</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">withRowsBetween</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="mi">9</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">with</span><span class="o">(</span>
+                            <span class="n">aRow</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="na">f</span><span class="o">(</span><span class="n">SIZE</span><span class="o">,</span> <span class="s">"S"</span><span class="o">),</span>
+                            <span class="n">aRow</span><span class="o">(</span><span class="mi">11</span><span class="o">).</span><span class="na">f</span><span class="o">(</span><span class="n">SIZE</span><span class="o">,</span> <span class="s">"S"</span><span class="o">),</span>
+                            <span class="n">aRow</span><span class="o">(</span><span class="mi">12</span><span class="o">).</span><span class="na">f</span><span class="o">(</span><span class="n">SIZE</span><span class="o">,</span> <span class="s">"M"</span><span class="o">),</span>
+                            <span class="n">aRow</span><span class="o">(</span><span class="mi">13</span><span class="o">).</span><span class="na">f</span><span class="o">(</span><span class="n">SIZE</span><span class="o">,</span> <span class="s">"L"</span><span class="o">)</span>
+                    <span class="o">)</span>
+    <span class="o">);</span>
+    <span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Product</span><span class="o">&gt;</span> <span class="n">products</span> <span class="o">=</span> <span class="n">productDao</span><span class="o">.</span><span class="na">findBySize</span><span class="o">(</span><span class="s">"S"</span><span class="o">);</span>
+
+    <span class="n">assertProductsWithIds</span><span class="o">(</span><span class="n">products</span><span class="o">,</span> <span class="mi">10L</span><span class="o">,</span> <span class="mi">11L</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+        </p>
+        <h2>How Daleq will help you</h2>
+          <p>Daleq is a DSL, actually a family of some builders, which acts as a wrapper around <a href="http://www.dbunit.org/">DbUnit</a>. DbUnit is a great tool when it comes to batch scripting your database but it does a bad job to give you a tool to do this nicely and proper in unit tests. Daleq fills this gap. Instead of maintaining XML files which act like the content of your database you write that content directly in Java. Daleq is designed to benefit from code completion in your favorite IDE. What was a burden in times of clumsy XML will become a one liner with Daleq.</p>
+          <p><a class="btn btn-primary"><i class="icon-download-alt icon-white"></i> Use it &raquo;</a></p> 
+      </div>      
+</div>
+
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <p>Powered by <a href="http://www.brands4friends.de">brands4friends</a> ©2012. Code licensed under the <a href="https://github.com/brands4friends/daleq/blob/master/LICENSE">Apache License, Version 2.0</a>.
+        </row>
+      </div>
+    </footer>
+  {% include scripts.html %}
+</body>
+</html>
