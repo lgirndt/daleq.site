@@ -1,7 +1,6 @@
 body {
 	padding-top: 60px;
 	padding-bottom: 0;
-	font-family: 'Raleway', sans-serif;	
 }
 
 .sidebar-nav {
@@ -14,10 +13,6 @@ body {
 
 .center {
 	text-align: center;
-}
-
-h1, h2, h3, h4, h5 {
-	font-family: 'Coustard', serif;
 }
 
 footer {
