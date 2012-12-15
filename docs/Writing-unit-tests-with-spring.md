@@ -57,7 +57,7 @@ public class TestConfig {
 }
 {% endhighlight %}
 
-The [[EmbeddedDatabaseBuilder|http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/jdbc/datasource/embedded/EmbeddedDatabaseBuilder.html]] is awesome. It sets up the whole embedded datbase when the application context is built and runs a script on it to set up the schema. 
+The [EmbeddedDatabaseBuilder](http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/jdbc/datasource/embedded/EmbeddedDatabaseBuilder.html) is awesome. It sets up the whole embedded datbase when the application context is built and runs a script on it to set up the schema. 
 
 If you've read [[Understanding the DSL]], you are already familiar with ```DaleqSupport```. This is were it gets instantiated. Furthermore we need a ```ConnectionFactory``` that knows about Spring. Since each JDBC connection is executed in a transaction managed by the PlatformTransactionManager, Daleq needs a Connection in the same Transaction as well. That's the job of ```SpringConnectionFactory```.
 
