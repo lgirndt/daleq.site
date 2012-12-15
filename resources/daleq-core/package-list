@@ -1,0 +1,7 @@
+de.brands4friends.daleq.core
+de.brands4friends.daleq.core.internal.conversion
+de.brands4friends.daleq.core.internal.dbunit
+de.brands4friends.daleq.core.internal.dbunit.dataset
+de.brands4friends.daleq.core.internal.formatting
+de.brands4friends.daleq.core.internal.template
+de.brands4friends.daleq.core.internal.types
