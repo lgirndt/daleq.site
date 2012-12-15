@@ -26,3 +26,7 @@ footer {
 	color: white;
 	padding-bottom: 2em;
 }
+
+.highlight pre {
+	background-color: #1d1f21;
+}
