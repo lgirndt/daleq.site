@@ -72,7 +72,7 @@ This yields
 | ID | NAME | SIZE | PRICE |
 |---:|:-----|:-----|------:|
 | 1 | ? | ? | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 Let's start with the simple things: Obviously we got ```Daleq.aTable(Class<T>)``` and ```Daleq.aRow(long)``` statically imported.
 
@@ -92,7 +92,7 @@ final Table products =
 | ID | NAME | SIZE | PRICE |
 |---:|:-----|:-----|------:|
 | 1 | Red Shirt | ? | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 We tell a row to contain a certain field by calling ```f()``` with the respective Field Definition and a proper value. And again, since ```ProductTable.NAME``` is statically imported, it is sufficient to reference just  ```NAME```. Another reason why we a Table Definition consist of constants is that we benefit from an IDE's code completion when writing Daleq tables.
 
@@ -108,7 +108,7 @@ final Table products =
 | ID | NAME | SIZE | PRICE |
 |---:|:-----|:-----|------:|
 | 1 | Red Shirt | XS | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 
 Calling ```aRow()``` returns an instance of ```Row```, which is a builder with a fluent interface. This means, most of its methods return ```Row``` and therefore enable you to chain those methods to write even more concise code.
@@ -128,7 +128,7 @@ final Table products =
 | 1 | ? | ? | ? |
 | 2 | ? | ? | ? |
 | 3 | ? | ? | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 You can add any number of rows with ```with()```. This makes sense, if you want to set individual fields on each row explicitly.
 
@@ -146,7 +146,7 @@ final Table products =
 | 3 | ? | ? | ? |
 | 4 | ? | ? | ? |
 | 5 | ? | ? | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 Note, that the limit 5 is inclusive!
 
@@ -168,7 +168,7 @@ final Table products =
 | 3 | ? | XS | ? |
 | 4 | ? | XS | ? |
 | 5 | ? | XS | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 Or with ```having()```: 
 
@@ -186,7 +186,7 @@ final Table products =
 | 3 | ? | M  | ? |
 | 4 | ? | L  | ? |
 | 5 | ? | XL | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 These methods just alter the already existing rows, hence appending further rows yields the expected result
 
@@ -207,7 +207,7 @@ final Table products =
 | 4 | ? | XS | ? |
 | 5 | ? | XS | ? |
 | 6 | ? | L | ? |
-{: .table .table-bordered}
+{: .table .table-bordered .table-condensed .table-striped}
 
 ## What to do with tables?
 
