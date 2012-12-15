@@ -60,19 +60,22 @@ Lets start simple:
 
 ### Table and Row
 
+<div class="row">
+    <div class="span5">
+Filling a table with Daleq        
 {% highlight java%}
 final Table products =
     aTable(ProductTable.class).with(
         aRow(1)
 );
-{% endhighlight %}
-
-This yields
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | ? | ? | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+{% endhighlight %}      
+    </div>
+    <div class="span4">
+will yield this table content
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 Let's start with the simple things: Obviously we got ```Daleq.aTable(Class<T>)``` and ```Daleq.aRow(long)``` statically imported.
 
@@ -82,71 +85,83 @@ By now Daleq has created a table containing a single row. We know that the ID of
 
 ### Fields
 
+<div class="row">
+    <div class="span5">
 {% highlight java%}
 final Table products =
     aTable(ProductTable.class).with(
         aRow(1).f(NAME,"Red Shirt")
 );
-{% endhighlight %}
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | Red Shirt | ? | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+{% endhighlight %}    
+    </div>
+    <div class="span4">
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">Red Shirt</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 We tell a row to contain a certain field by calling ```f()``` with the respective Field Definition and a proper value. And again, since ```ProductTable.NAME``` is statically imported, it is sufficient to reference just  ```NAME```. Another reason why we a Table Definition consist of constants is that we benefit from an IDE's code completion when writing Daleq tables.
 
 ### More Fields
 
+<div class="row">
+    <div class="span5">
 {% highlight java%}
-final Table products = 	
+final Table products =  
     aTable(ProductTable.class).with(
         aRow(1).f(NAME,"Red Shirt").f(SIZE,"XS")
 );
-{% endhighlight %}
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | Red Shirt | XS | ? |
-{: .table .table-bordered .table-condensed .table-striped}
-
+{% endhighlight %}      
+    </div>
+    <div class="span4">
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">Red Shirt</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 Calling ```aRow()``` returns an instance of ```Row```, which is a builder with a fluent interface. This means, most of its methods return ```Row``` and therefore enable you to chain those methods to write even more concise code.
 
 
 ### More Rows
 
+<div class="row">
+    <div class="span5">
 {% highlight java%}
-final Table products = 	
+final Table products =  
     aTable(ProductTable.class).with(
         aRow(1), aRow(2), aRow(3)
 );
-{% endhighlight %}
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | ? | ? | ? |
-| 2 | ? | ? | ? |
-| 3 | ? | ? | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+{% endhighlight %}      
+    </div>
+    <div class="span4">
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">2</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">3</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 You can add any number of rows with ```with()```. This makes sense, if you want to set individual fields on each row explicitly.
 
 If you just want to add arbitrary rows, it is even simpler:
 
+<div class="row">
+    <div class="span5">
 {% highlight java%}
-final Table products = 	
-    aTable(ProductTable.class).withRowsBetween(1,5);
-{% endhighlight %}
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | ? | ? | ? |
-| 2 | ? | ? | ? |
-| 3 | ? | ? | ? |
-| 4 | ? | ? | ? |
-| 5 | ? | ? | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+final Table products =  
+    aTable(ProductTable.class)
+        .withRowsBetween(1,5);
+{% endhighlight %}      
+    </div>
+    <div class="span4">
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">2</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">3</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">4</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">5</td><td style="text-align: left;">?</td><td style="text-align: left;">?</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 Note, that the limit 5 is inclusive!
 
@@ -154,60 +169,71 @@ Note, that the limit 5 is inclusive!
 
 You can change all rows of the table with ```allHaving()```:
 
+<div class="row">
+    <div class="span5">
 {% highlight java%}
 final Table products = 
     aTable(ProductTable.class)
         .withRowsBetween(1,5)
         .allHaving(SIZE,"XS");
-{% endhighlight %}
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | ? | XS | ? |
-| 2 | ? | XS | ? |
-| 3 | ? | XS | ? |
-| 4 | ? | XS | ? |
-| 5 | ? | XS | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+{% endhighlight %}      
+    </div>
+    <div class="span4">
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">2</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">3</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">4</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">5</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 Or with ```having()```: 
 
+<div class="row">
+    <div class="span5">
 {% highlight java%}
-final Table products = 	
+final Table products =  
     aTable(ProductTable.class)
         .withRowsBetween(1,5)
         .having(SIZE,"XS","S","M","L","XL");
-{% endhighlight %}
+{% endhighlight %}        
+    </div>
+    <div class="span4">
 
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | ? | XS | ? |
-| 2 | ? | S  | ? |
-| 3 | ? | M  | ? |
-| 4 | ? | L  | ? |
-| 5 | ? | XL | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+        <table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">2</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">3</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">4</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">5</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">6</td><td style="text-align: left;">?</td><td style="text-align: left;">L</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+
+    </div>
+</div>
 
 These methods just alter the already existing rows, hence appending further rows yields the expected result
 
-
+<div class="row">
+    <div class="span5">
 {% highlight java%}
-final Table products = 	
+final Table products =  
     aTable(ProductTable.class)
         .withRowsBetween(1,5)
         .allHaving(SIZE,"XS")
         .with(aRow(6).f(SIZE,"L"));
-{% endhighlight %}
-
-| ID | NAME | SIZE | PRICE |
-|---:|:-----|:-----|------:|
-| 1 | ? | XS | ? |
-| 2 | ? | XS | ? |
-| 3 | ? | XS | ? |
-| 4 | ? | XS | ? |
-| 5 | ? | XS | ? |
-| 6 | ? | L | ? |
-{: .table .table-bordered .table-condensed .table-striped}
+{% endhighlight %}      
+    </div>
+    <div class="span4">
+<table class="table table-bordered table-condensed table-striped"><thead><tr><th>ID</th><th>NAME</th><th>SIZE</th><th>PRICE</th></tr></thead><tbody><tr><td style="text-align: right;">1</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">2</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">3</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">4</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">5</td><td style="text-align: left;">?</td><td style="text-align: left;">XS</td><td style="text-align: right;">?</td>
+</tr><tr><td style="text-align: right;">6</td><td style="text-align: left;">?</td><td style="text-align: left;">L</td><td style="text-align: right;">?</td>
+</tr></tbody></table>
+    </div>
+</div>
 
 ## What to do with tables?
 
