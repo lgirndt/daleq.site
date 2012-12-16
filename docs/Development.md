@@ -40,7 +40,8 @@ Currently the following databases are supported
 |---:|----------------:|:-------------------|
 | HSQLDB | HSQLDB | - |
 | H2 | H2 | - |
-| Mysql | Mysql | integration.mysql.url=URL, integration.mysql.user=test, integration.mysql.password=test |
+| Mysql | Mysql | integration.mysql.url=URL <br>integration.mysql.user=test <br>integration.mysql.password=test |
+{: .table .table-bordered .table-condensed .table-striped }
 
 Gradle properties can be provided on the command line via the ```-P``` switch, like 
 
