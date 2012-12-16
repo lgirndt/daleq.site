@@ -3,3 +3,5 @@ pygments: true
 
 exclude: bootstrap
 baseurl: /daleq.site/
+
+version: 0.3.0

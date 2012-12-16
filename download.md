@@ -5,7 +5,7 @@ layout: down
 
 todo
 
-# Getting it from Maven
+## Maven
 
 Daleq lives in the Maven Central Repository. Including Daleq into your project is as easy as just adding the dependency:
 
@@ -13,7 +13,7 @@ Daleq lives in the Maven Central Repository. Including Daleq into your project i
 <dependency>
     <groupId>de.brands4friends.daleq</groupId>
     <artifactId>daleq-core</artifactId>
-    <version>0.3.0</version>
+    <version>{{ site.version }}</version>
     <scope>test</scope>
 </dependency>
 {% endhighlight %}
@@ -24,8 +24,8 @@ or if you are a Spring junky and want to leverage Daleq's Spring capabilities ad
 <dependency>
     <groupId>de.brands4friends.daleq</groupId>
     <artifactId>daleq-spring</artifactId>
-    <version>0.3.0</version>
+    <version>{{ site.version }}</version>
 </dependency>
 {% endhighlight %}
 
-Hallo Welt
+## Download Jars
