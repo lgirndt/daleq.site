@@ -827,7 +827,7 @@ pre.prettyprint {
 }
 pre code {
   padding: 0;
-  color: inherit;
+  color: #c5c8c6;
   white-space: pre;
   white-space: pre-wrap;
   background-color: transparent;
