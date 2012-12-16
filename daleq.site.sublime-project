@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/lgirndt/devel/playground/daleq.site",
+			"folder_exclude_patterns" : ["_site"]
+		}
+	]
+}
