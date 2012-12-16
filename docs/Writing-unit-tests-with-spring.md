@@ -30,6 +30,7 @@ Why do we suggest to use Spring for unit testing? The answer is simple: The Spri
 It's the age of Spring 3.x, hence we use Spring's Java Config. But nonetheless, the same approach would also work with the classic XML configuration.
 
 {% highlight java %}
+// The Bean Configuration
 @Configuration
 public class TestConfig {
 
@@ -67,6 +68,7 @@ If you've read [[Understanding the DSL]], you are already familiar with ```Daleq
 Everything is set up, we are about to write our unit tests:
 
 {% highlight java%}
+// A Unit Test
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfig.class)
 public class JdbcProductDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
