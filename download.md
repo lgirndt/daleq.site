@@ -34,8 +34,8 @@ Or you might want to download the Jars directly.
 
 | **Module** | | | | |
 |:--|--|--|--|--|
-| daleq-core   | {{ site.version }}   |  [Jar]() | [Sources]() | [Javadoc]() |
-| daleq-spring | {{ site.version }} | [Jar]() | [Sources]() | [Javadoc]() |
+| daleq-core   | {{ site.version }}   |  [Jar](http://repo1.maven.org/maven2/de/brands4friends/daleq/daleq-core/{{ site.version }}/daleq-core-{{ site.version }}.jar) | [Sources](http://repo1.maven.org/maven2/de/brands4friends/daleq/daleq-core/{{ site.version }}/daleq-core-{{ site.version }}-sources.jar) | [Javadoc](http://repo1.maven.org/maven2/de/brands4friends/daleq/daleq-core/{{ site.version }}/daleq-core-{{ site.version }}-javadoc.jar) |
+| daleq-spring | {{ site.version }} | [Jar](http://repo1.maven.org/maven2/de/brands4friends/daleq/daleq-spring/{{ site.version }}/daleq-spring-{{ site.version }}.jar) | [Sources](http://repo1.maven.org/maven2/de/brands4friends/daleq/daleq-spring/{{ site.version }}/daleq-spring-{{ site.version }}-sources.jar) | [Javadoc](http://repo1.maven.org/maven2/de/brands4friends/daleq/daleq-spring/{{ site.version }}/daleq-spring-{{ site.version }}-javadoc.jar) |
 {: .table}
 
 ## Get the Sources
