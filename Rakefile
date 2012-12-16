@@ -3,5 +3,5 @@ task :lessc do
 end
 
 task :serve do
-	system('jekyll --server --auto')
+	system('jekyll --server --auto --base-url /')
 end	
