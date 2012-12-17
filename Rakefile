@@ -1,14 +1,13 @@
 require 'rake/clean'
 
-CLEAN.include('_site')
+CLEAN.include('_site','assets/css')
 
-rule '.css' => [ proc { |tn| tn.sub(/\.css$/, '.less')} ] do |t|
-	sh "echo source #{t.source}, name #{t.name}"  
+directory 'assets/css'
+
+# Compile less from less/* to assets/css
+rule '.css' => [ proc { |tn| tn.sub(/\.css$/, '.less').sub(/^assets\/css\//,'less/') } ] do |t| 
+	sh "lessc #{t.source} #{t.name}"  
 end	
-
-task :lessc do 
-	system('lessc bootstrap/less/bootstrap.less assets/css/bootstrap.css')	
-end
 
 task :serve do
 	system('jekyll --server --auto --base-url /')
