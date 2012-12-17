@@ -1,3 +1,8 @@
+require 'rake/clean'
+
+CLEAN.include('_site')
+
+
 task :lessc do 
 	system('lessc bootstrap/less/bootstrap.less assets/css/bootstrap.css')	
 end
